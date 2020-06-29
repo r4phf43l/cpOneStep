@@ -79,10 +79,11 @@ if(filter_input(INPUT_POST, 'termsOfUse') && $v->state != 'Error') {
                 }
             }
         }
+
         if ($v->state != 'Error') {
             $p = $v->issetItem('radcheck', ['username' => $userName]);
             if ($v->state != 'Error') {
-                if ($r==true) {
+                if ($p==true) {
                     $fr = [ 'value' => $password ];
                     $s = $v->updateItem('radcheck', $fr, $wr);
                 } else {        
@@ -96,6 +97,7 @@ if(filter_input(INPUT_POST, 'termsOfUse') && $v->state != 'Error') {
                 }
             }
         }
+
         if ($v->state != 'Error') {
             $g = $v->issetItem('radusergroup', ['username' => $userName]);
             if ($g==true && $v->state != 'Error') {     
@@ -103,6 +105,7 @@ if(filter_input(INPUT_POST, 'termsOfUse') && $v->state != 'Error') {
                 $t = $v->insertItem('radusergroup', $fg);
             }
         }
+
         
         $login = count($errormessage)==0 && $v->state != 'Error' ? true : false;
     } else {

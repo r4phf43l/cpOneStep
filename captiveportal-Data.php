@@ -8,7 +8,7 @@ namespace Data;
 class connectDb {	
     protected $link, $h, $u, $p, $s, $r;
     protected $debug = false;
-    protected $errors = [];
+    protected $errors;
     public $status, $state;
     
     function __construct($h, $u, $p, $s) {
@@ -24,7 +24,7 @@ class connectDb {
     }
     function __destroy():void { $this->link->close(); }
     public function setDebug(bool $d):void { $this->debug = $d; }
-    static public function getDebug():bool  { return $this->debug; }
+    public function getDebug():bool  { return $this->debug; }
     public function getPassview():string {
         $r = ($this->debug) ? $this->p : null;
         return $r;
@@ -33,9 +33,9 @@ class connectDb {
         $this->state = 'Error';       
         $this->errors[count($this->errors)] = $e . ' [ ' . $c . ' ]';
     }
-    public function getErrors():array {
+    public function getErrors() {
         $r = ($this->debug) ? $this->errors : null;
-        return $r;
+        return implode( ' :: ' , $r);
     }
 }
 

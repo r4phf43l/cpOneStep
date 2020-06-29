@@ -104,16 +104,16 @@
                 <form name="loginForm" method="post" action="$PORTAL_ACTION$">
                 <input name="auth_user" type="hidden" value="<?=$userName; ?>">
                 <input name="auth_pass" type="hidden" value="<?=$password; ?>">
-                <input name="lang" type="hidden" value="<?=CPLANG?>">
+                
                 <input name="zone" type="hidden" value="$PORTAL_ZONE$">
                 <input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
                 <div class="control-group">
-                    <input id="submitbtn" name="submitbtn" type="submit" value="<?=$l[CPLANG]['continue_button']?>" class="btn btn-signin right">
+                    <input id="submitbtn" name="accept" type="submit" value="<?=$l[CPLANG]['continue_button']?>" class="btn btn-signin right">
                 </div>                
-            </form>
+            </form><input name="lang" type="hidden" value="<?=CPLANG?>">
             <footer>cpOS | ra &copy;<?=date('Y')?></footer>
         </section>
         <?php endif ?>
-        <?=($v->debug) ?? 'ERROR LOG: ' . print_r($v->getErrors())?>
+        <?=($v->getDebug()===true) ? 'ERROR LOG: ' . $v->getErrors() : ''?>
     </body>
 </html>

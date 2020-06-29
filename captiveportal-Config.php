@@ -5,17 +5,17 @@
  */
 
 // DATABASE SETTINGS
-DEFINE("DBHOST", "localhost");
-DEFINE("DBUSER", "rafacom_user");
-DEFINE("DBPASS", "R4phf43l2k20#");
-DEFINE("DBSCHM", "rafacom_cpos");
+DEFINE("DBHOST", "127.0.0.1");
+DEFINE("DBUSER", "radius");
+DEFINE("DBPASS", "radpass");
+DEFINE("DBSCHM", "radius");
 
 //FREERADIUS SETTINGS
 DEFINE("FRGROUP", "Free");
 
 //CAPTIVEPORTAL SETTINGS
 DEFINE("CPLANG", "pt-br");
-DEFINE("CPDEBUG", true); //DEBUG MODE
+DEFINE("CPDEBUG", true); //DEBUG MODE: false or true
 
 global $ct, $errormessage;
 

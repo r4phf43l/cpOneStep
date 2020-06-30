@@ -100,7 +100,7 @@ if(filter_input(INPUT_POST, 'termsOfUse') && $v->state != 'Error') {
 
         if ($v->state != 'Error') {
             $g = $v->issetItem('radusergroup', ['username' => $userName]);
-            if ($g==true && $v->state != 'Error') {     
+            if ($g==false && $v->state != 'Error') {     
                 $fg = [ 'username' => $userName, 'groupname' => FRGROUP ];  
                 $t = $v->insertItem('radusergroup', $fg);
             }
